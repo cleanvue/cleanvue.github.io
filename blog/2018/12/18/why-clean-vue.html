@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Blog - Clean Vue</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <link rel="shortcut icon" href="/img/logo.png" type="image/png" />
+    <link
+      href="http://fonts.googleapis.com/css?family=Montserrat|Roboto:400,400italic,600|Roboto+Mono"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="/css/blog/common.css" type="text/css" />
+    <link rel="stylesheet" href="/css/blog/post.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <div class="header"><a href="/">Clean Vue</a></div>
+      <p class="links">
+        <a href="https://twitter.com/thisis420" target="_blank">
+          <img src="/img/twitter.png" />
+        </a>
+        <a href="https://github.com/aayush420" target="_blank">
+          <img src="/img/github.png" />
+        </a>
+        <a href="/atom.xml" target="_blank"><img src="/img/feed.png"/></a>
+      </p>
+      <div class="main">
+        <div class="post">
+          <h3 class="date">Dec 18, 2018</h3>
+          <h1>Why Clean Vue ?</h1>
+          <div class="content">
+            <p>
+              The year of 2018 has been pretty crazy for Node packages. Past few
+              days have witnessed the explosion of news about a malicious
+              package in Node package repositories. So, I'd like to explain what
+              exactly happened and what this project is going to do to remediate
+              this.
+            </p>
+            <h2 id="what">
+              <a href="#what" title="What happened" class="headerlink">
+                What Happened exactly?
+              </a>
+            </h2>
+            <p>
+              As of today's search results, if I search for
+              <code>flatmap eventstream</code>, Google is still filled up with
+              results related to the Flatmap incident.
+              <img src="img/flatmap.jpg" alt="Flatmap News" /> So, let me
+              explain what exactly happened..
+            </p>
+            <p>
+              There is a popular package named <code>eventstream</code> in the
+              node package repository. It is soo popular that it gets downloaded
+              more than a million times a week.
+              <img src="img/event-stream.jpg" alt="Event Stream Downloads" />
+            </p>
+            <p>
+              Everything was going smooth until something bad happened. Like
+              they say, there's always good and bad to everything. Same happened
+              with event-stream. The author transferred the ownership of the
+              project to some unknown Github user who contacted him on mail.
+              This unknown user has injected a new dependency flatmap for his own purpose.
+            </p>
+            <p> As described from <a href="https://blog.npmjs.org/post/180565383195/details-about-the-event-stream-incident">Npmjs blog</a>, <pre>
+On the morning of November 26th, npm’s security team was notified 
+of a malicious package that had made its way into event-stream, 
+a popular npm package. After triaging the malware, npm Security 
+responded by removing flatmap-stream and event-stream@3.3.6 from 
+the Registry and taking ownership of the event-stream package 
+to prevent further abuse.
+
+The malicious package was version 0.1.1 of flatmap-stream. 
+This package was added as a direct dependency of the event-stream 
+package by a new maintainer on September 9, 2018, in version 
+3.3.6. The event-stream package is widely used, but the 
+malicious code targeted developers at a company that had 
+a very specific development environment setup: running the payload 
+in any other environment has no effect. This specific targeting 
+means that, ultimately, most developers would not be affected 
+even if they had mistakenly installed the malicious module.
+
+The injected code targets the Copay application. When a developer 
+at Copay runs one of their release build scripts, the resulting 
+code is modified before being bundled into the application. 
+The code was designed to harvest account details and private keys 
+from accounts having a balance of more than 
+100 Bitcoin or 1000 Bitcoin Cash.
+            </pre>
+        </p>
+<h2 id="known"><a href="#known" title="was it known?">Were these kind of threats unpredictable ? </a></h2>
+<p>People might be thinking that these kind of threats are unfortunate and can not be predicted. Trust me people, <b>You are wrong !!</b>
+There were already warnings by a few wize citizens of the internet. One of these is <a href="https://hackernoon.com/im-harvesting-credit-card-numbers-and-passwords-from-your-site-here-s-how-9a8cb347c5b5">a fictious but vittious blog  by David Gilbertson</a>. In this article, David explains how he could have injected a malicious package into npm (Yes! Exactly the thing that happened now !)
+There were other articles too. Like <a href="https://qz.com/646467/how-one-programmer-broke-the-internet-by-deleting-a-tiny-piece-of-code/">the one article by Keith Collins</a>. This is a similar article explaining how broken the open-source software development was.
+</p>
+<h2 id="whatnow"><a href="#whatnow" title="what now?">So what's all with this now?</a></h2>
+<p>
+    The main problem that can be seen from these articles and the incident that happened can be described as "the blind trust on the dependancies from npm". 
+    While its true that it is impossible to check the validity of each dependancy from the never-ending node_modules list, there is a workaround to overcome this problem.
+    The solution can be devided into three major categories as follows: 
+    <ol>
+        <li>Continuous verification of each dependancy of popular packages like vue</li>
+        <li>Removal of unnecessary dependancies through pull requests to package maintainers</li>
+        <li>Substitution of the dependancy's work by writing short hand-written snippets in the package itself</li>
+    </ol>
+    Obvisously, each developer out in the world can not do this. So, I came up with this project called <b>CleanVue</b>, where I keep doing the things described in above points.
+    I am going to start by looking at the dependancy tree and start inspecting it. This is totally open-source and help is appreciated.
+</p>
+          </div>
+        </div>
+      </div>
+      <a id="newer" class="blog-nav" href="/blog/2018/12/19/initial-steps.html"> Initial Steps&nbsp;&gt; </a>
+      <a id="older" class="blog-nav" href="/blog/"> &lt;&nbsp;Home</a>
+    </div>
+  </body>
+</html>
