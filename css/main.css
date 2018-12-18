@@ -8,6 +8,25 @@ body {
     Arial, sans-serif;
   color: #333;
 }
+#test {
+  text-align: center;
+  margin: auto;
+  z-index: 2;
+  transition: all 0.8s ease-in-out;
+  transform: rotate(-180deg);
+  height: 100vh;
+}
+#test svg {
+  stroke: black;
+  height: 100vh;
+  fill: none;
+  stroke-width: 0.3px;
+  stroke-opacity: 1;
+}
+#test svg:hover {
+  stroke-opacity: 0.8;
+  stroke-width: 1px;
+}
 #wrapper {
   position: absolute;
   left: 0;
